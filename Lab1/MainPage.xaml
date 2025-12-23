@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="10,0"
+            Spacing="20">
+
+            <VerticalStackLayout Spacing="10">
+                <Label
+                    Text="Фамилия:"
+                    FontAttributes="Bold" />
+
+                <Entry
+                    x:Name="Surname"
+                    Placeholder="Введите фамилию"
+                />
+
+                <Label 
+                    x:Name="SurnameError"
+                    Text="Фамилия не может быть пустой" 
+                    IsVisible="False"
+                    TextColor="Red"/>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout Spacing="10">
+                <Label
+                    Text="Имя:"
+                    FontAttributes="Bold" />
+
+                <Entry
+                    x:Name="Name"
+                    Placeholder="Введите имя"
+                />
+
+                <Label 
+                    x:Name="NameError"
+                    Text="Имя не может быть пустым" 
+                    IsVisible="False"
+                    TextColor="Red"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+
+                <Label
+                Text="Отчество:"
+                FontAttributes="Bold"  />
+
+                <Entry
+                x:Name="Patronymic"
+                Placeholder="Введите отчество"
+                />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+                
+                <Label 
+                    Text="Возраст"  
+                    FontAttributes="Bold" />
+                
+                <Label 
+                    x:Name="Age"
+                    Text="5 лет"
+                    FontAttributes="Bold" />
+
+                <HorizontalStackLayout 
+                    Spacing="15" 
+                     >
+
+                    <Slider 
+                        x:Name="AgeSl"
+                        Minimum="5"
+                        Maximum="115"
+                        WidthRequest="200"
+                        Value="5"
+                        ValueChanged="OnAgeChanged" />
+
+                    <Stepper 
+                        x:Name="AgeSt"
+                        Minimum="5"
+                        Maximum="115"
+                        Increment="1"
+                        Value="5"
+                        ValueChanged="OnAgeChanged" />
+
+                </HorizontalStackLayout>
+
+                <Label 
+                    x:Name="AgeError"
+                    Text="Возраст должен быть больше 5 и меньше 115" 
+                    IsVisible="False"
+                    TextColor="Red"/>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout Spacing="10">
+
+                <Label
+                    Text="Номер телефона:"
+                    FontAttributes="Bold"  />
+
+                <Entry
+                    x:Name="PhoneNumber"
+                    Placeholder="Введите номер телефона"
+                    TextChanged="OnNumberChanged"
+                    Keyboard="Telephone"
+                    TextColor="Red"
+                    />
+
+                <Label 
+                    x:Name="PhoneError"
+                    Text="Невалидный номер телефона" 
+                    IsVisible="False"
+                    TextColor="Red"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+
+                <Label
+                    Text="Пол:"
+                    FontAttributes="Bold"  />
+
+                <HorizontalStackLayout Spacing="10">
+
+                    <RadioButton x:Name="MaleGender" Content="Мужской" GroupName="Gender" IsChecked="True"/>
+
+                    <RadioButton x:Name="FemaleGender" Content="Женский" GroupName="Gender" IsChecked="False"/>
+
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout>
+                
+                <Label
+                    Text="Согласие с условиями:"
+                    FontAttributes="Bold"  />
+
+                <Switch 
+                    x:Name="AgreeSwitch" 
+                    Toggled="OnAgreeChanged" 
+                    HorizontalOptions="Start"/>
+                
+            </VerticalStackLayout>
+
+            <Button 
+                x:Name="SubButton" 
+                Text="Отправить" 
+                IsEnabled="False"
+                Clicked="SendAsync"/>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
